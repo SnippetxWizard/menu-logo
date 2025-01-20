@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Social Media Menu with Animations</title>
+  <!-- Correct Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Social Menu Container */
+    .social-menu {
+      text-align: center;
+      padding: 50px 0;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Updated gradient */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Unordered List Styling */
+    .social-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px; /* Modern spacing method */
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-out; /* Entrance animation */
+    }
+
+    /* List Items */
+    .social-menu ul li {
+      position: relative;
+      animation: slideUp 1s ease-out; /* Individual icon animation */
+    }
+
+    /* Links inside List Items */
+    .social-menu ul li a {
+      display: block;
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+      border-radius: 50%;
+      background: #fff;
+      color: #4e54c8;
+      font-size: 30px;
+      transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hover Effects */
+    .social-menu ul li a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      transition: left 0.4s ease;
+      z-index: 0;
+    }
+
+    .social-menu ul li a:hover::before {
+      left: 0;
+    }
+
+    .social-menu ul li a:hover {
+      color: #fff;
+      transform: scale(1.2) rotate(10deg); /* Zoom and rotate effect */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      animation: bounce 0.5s; /* Bounce effect on hover */
+    }
+
+    /* Icon Styling */
+    .social-menu ul li a i {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Tooltip Styling */
+    .social-menu ul li:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      white-space: nowrap;
+      opacity: 0;
+      animation: fadeIn 0.4s forwards;
+    }
+
+    /* Tooltip Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    /* Entrance Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Bounce Animation */
+    @keyframes bounce {
+      0%, 100% {
+        transform: scale(1.2) translateY(0);
+      }
+      50% {
+        transform: scale(1.2) translateY(-10px);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .social-menu ul {
+        gap: 20px; /* Adjust spacing for smaller screens */
+      }
+      .social-menu ul li a {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        line-height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Social Media Menu -->
+  <div class="social-menu">
+    <ul>
+      <li data-tooltip="GitHub">
+        <a href="https://github.com/SnippetxWizard" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      <li data-tooltip="Instagram">
+        <a href="https://instagram.com/snippetwizard" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li data-tooltip="Email">
+        <a href="mailto:snippetwizard@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
